@@ -54,8 +54,8 @@ resource "aws_eks_node_group" "private_nodes" {
   }
 
   remote_access {
-    ec2_ssh_key = var.eks_node_ssh_public_key
-    source_security_group_ids = var.eks_node_sg_id    # For allowing SSH from bastion host (additional SG in addition with default SG)
+    ec2_ssh_key = var.eks_node_public_key
+    source_security_group_ids = var.eks_node_sg_ids   # For allowing SSH from bastion host (additional SG in addition with default SG)
   }
 
   # Tags for the node group and associated EC2 instances

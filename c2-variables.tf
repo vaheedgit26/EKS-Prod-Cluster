@@ -109,13 +109,13 @@ variable "node_disk_size" {
   default     = 20
 }
 
-# EKS cluster SG (This will be added as additional SG to default Custer SG)
+# EKS cluster SG (This will be added as additional SG to default Cluster SG)
 variable "eks_cluster_sg_ids" {
   description = "EKS Cluster accepting traffic from Bastion Host"
   type        = list(string)
 }
 
-# EC2 instance SG for worker nodes
+# EC2 instance SG for worker nodes ((This will be added as additional SG to default Nodegroup SG)
 variable "eks_node_sg_ids" {
   description = "List of node group EC2 instance security group"
   type        = list(string)

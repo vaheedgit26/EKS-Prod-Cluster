@@ -27,7 +27,7 @@ resource "aws_eks_cluster" "main" {
     # public_access_cidrs     = var.cluster_endpoint_public_access_cidrs
 
     # Security Group Id for EKS cluster (default security group will be intact and the new one will be added as an additional SG)
-    security_group_ids      = var.security_group_ids
+    security_group_ids      = var.eks_cluster_security_group_ids
   }
 
   # Define the service CIDR range used by Kubernetes services (optional)

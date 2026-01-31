@@ -26,7 +26,7 @@ resource "aws_eks_cluster" "main" {
     # List of CIDRs allowed to reach the public endpoint
     # public_access_cidrs     = var.cluster_endpoint_public_access_cidrs
 
-    # Security Group Id for EKS cluster (default security group will be intact and the new one will be added as an additional SG)
+    # Security Group Id for EKS cluster from Bastion (default security group will be intact and the new one will be added as an additional SG)
     security_group_ids      = var.eks_cluster_security_group_ids
   }
 

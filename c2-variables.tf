@@ -108,3 +108,22 @@ variable "node_disk_size" {
   type        = number
   default     = 20
 }
+
+# EKS cluster SG (This will be added as additional SG to default Custer SG)
+variable "eks_cluster_sg_ids" {
+  description = "EKS Cluster accepting traffic from Bastion Host"
+  type        = list(string)
+}
+
+# EC2 instance SG for worker nodes
+variable "eks_node_sg_ids" {
+  description = "List of node group EC2 instance security group"
+  type        = list(string)
+}
+
+# EC2 instance Public key for worker nodes to allow SSH from Bastion Host
+variable "eks_node_public_key" {
+  description = "Node group EC2 instance public key"
+  type        = string
+}
+

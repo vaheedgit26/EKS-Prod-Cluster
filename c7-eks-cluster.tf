@@ -18,13 +18,16 @@ resource "aws_eks_cluster" "main" {
     subnet_ids = data.terraform_remote_state.vpc.outputs.private_subnet_ids
 
     # Allow access to private endpoint (inside VPC)
-    endpoint_private_access = var.cluster_endpoint_private_access
+    endpoint_private_access = var.cluster_endpoint_private_access            # true
 
     # Allow access to public endpoint (from internet, controlled via CIDRs)
-    endpoint_public_access  = var.cluster_endpoint_public_access
+    endpoint_public_access  = var.cluster_endpoint_public_access             # false
 
     # List of CIDRs allowed to reach the public endpoint
-    public_access_cidrs     = var.cluster_endpoint_public_access_cidrs
+    # public_access_cidrs     = var.cluster_endpoint_public_access_cidrs
+
+    # Security Group Id for EKS cluster (default security group will be intact and the new one will be added as an additional SG)
+    security_group_ids      = var.security_group_ids
   }
 
   # Define the service CIDR range used by Kubernetes services (optional)

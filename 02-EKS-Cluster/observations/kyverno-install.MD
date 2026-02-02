@@ -10,7 +10,7 @@ kubectl apply -f https://github.com/kyverno/kyverno/releases/latest/download/rel
 ✅ This will install:   
 - Kyverno Deployment in kyverno namespace  
 - CRDs for Policies, ClusterPolicies, etc.  
-----------------------------------------------------------------------------------------------
+---
 2️⃣ **Install Kyverno using Helm (more production-friendly)**  
 **1. Add the Kyverno Helm repo**  
 ```bash
@@ -41,7 +41,7 @@ NAME                       READY   STATUS    RESTARTS   AGE
 kyverno-7c8d5f4b9f-abcde  1/1     Running   0          1m
 kyverno-7c8d5f4b9f-fghij  1/1     Running   0          1m
 ```
-
+***
 4️⃣ **Test Kyverno is working**   
 **1. Create a simple test ClusterPolicy:**   
 ```yaml
@@ -66,7 +66,7 @@ spec:
 kubectl run test-nginx --image=nginx
 ```
 You should see rejected by Kyverno. ✅  
-
+***
 5️⃣ **Next step for your setup**  
 After Kyverno is running, you can add the **policy we discussed:**  
 ```yaml

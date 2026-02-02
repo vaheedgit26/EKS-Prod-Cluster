@@ -2,6 +2,7 @@
 1️⃣ CoreDNS  
 - **Why**: Cluster DNS, HPA-enabled  
 - **How**: EKS Add-on or Helm   
+
 Toleration:  
 ```yaml
 tolerations:

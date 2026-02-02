@@ -3,7 +3,7 @@ This is the easiest way to get started:
 ```bash
 # 1. Create the kyverno namespace
 kubectl create namespace kyverno
-
+----------------------------------------------------------------------------------------------
 # 2. Apply the latest stable release
 kubectl apply -f https://github.com/kyverno/kyverno/releases/latest/download/release.yaml
 ```

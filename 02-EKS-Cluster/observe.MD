@@ -41,3 +41,5 @@ tolerations:
 nodeSelector:
   node-role: system
 ```
+
+5️⃣ EBS CSI Controller  

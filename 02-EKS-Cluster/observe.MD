@@ -131,3 +131,22 @@ kubectl apply -f test.yaml
 Expected:  
 - Pod schedules on Karpenter node
 - Never on MNG
+
+5️⃣ **Verify Karpenter nodes stay workload-only**  
+```bash
+kubectl get pods -A -o wide | grep <karpenter-node-name>
+```
+You should see:  
+- App pods only  
+- No kube-system controllers  
+
+🚨 Common mistakes to watch for  
+❌ Forgetting Metrics Server  
+❌ Helm chart upgrades without values file  
+❌ Installing new add-ons without tolerations  
+❌ Assuming kube-system namespace = safe  
+
+🧠 **Golden rule (remember this)**  
+**Taints define ownership.**  
+**Tolerations grant permission.**  
+**Namespaces do nothing.**  

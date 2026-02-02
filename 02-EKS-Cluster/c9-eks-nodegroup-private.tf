@@ -81,3 +81,11 @@ resource "aws_eks_node_group" "private_nodes" {
     aws_iam_role_policy_attachment.eks_ecr_policy
   ]
 }
+
+# For all your system workloads you need the following tolerations
+# tolerations:
+#  - key: "node-role"
+#    operator: "Equal"
+#    value: "system"
+#    effect: "NoSchedule"
+

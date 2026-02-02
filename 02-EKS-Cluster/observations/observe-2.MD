@@ -1,5 +1,5 @@
 ## 1️⃣ Terraform Helm provider basic example  
-```bash
+```hcl
 provider "helm" {
   kubernetes {
     config_path = "~/.kube/config"
@@ -7,7 +7,7 @@ provider "helm" {
 }
 ```
 Then your **AWS Load Balancer Controller release:**  
-```text
+```hcl
 resource "helm_release" "aws_load_balancer_controller" {
   name       = "aws-load-balancer-controller"
   repository = "https://aws.github.io/eks-charts"

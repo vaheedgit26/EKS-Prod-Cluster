@@ -53,5 +53,81 @@ tolerations:
 ```   
 (Node DaemonSet part is fine.)  
 
-
 6️⃣ **Metrics Server**  
+- Used by HPA
+- Often forgotten ❗  
+```yaml
+tolerations:
+  - key: node-role
+    value: system
+    effect: NoSchedule
+```
+
+7️⃣ **ExternalDNS (if used)**
+```yaml
+tolerations:
+  - key: node-role
+    value: system
+    effect: NoSchedule
+
+nodeSelector:
+  node-role: system
+```
+
+🔹 **Observability / Ops (depends on your stack)** 
+Check if you run any of these in kube-system:  
+- Fluent Bit / Fluentd  
+- Prometheus Operator  
+- CloudWatch Agent  
+- Datadog agent (controller part)  
+Controllers → **YES, toleration needed**   
+DaemonSets → usually OK
+
+🧪 **Validation steps (do this in order)** 
+1️⃣ **Verify node taint is present**  
+```bash
+kubectl get nodes -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints
+```
+You should see:  
+```bash
+node-role=system:NoSchedule
+```  
+on **managed node group nodes only.**  
+
+2️⃣ **Check kube-system pods are running**  
+```bash
+kubectl get pods -n kube-system -o wide
+```
+Confirm:  
+- STATUS = Running  
+- NODE = managed node group nodes  
+- No Pending pods  
+
+3️⃣ **Look for scheduling failures (very important)**  
+```bash
+kubectl get events -n kube-system --sort-by=.lastTimestamp
+```
+If something is missing toleration, you’ll see:  
+```bash
+node(s) had taint {node-role: system}, that the pod didn't tolerate
+```  
+
+4️⃣ **Verify app pods cannot land on system nodes** 
+Create a test pod (default namespace):  
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: should-not-run
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+``` 
+Apply:  
+```bash
+kubectl apply -f test.yaml
+```
+Expected:  
+- Pod schedules on Karpenter node
+- Never on MNG

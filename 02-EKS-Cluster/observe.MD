@@ -43,3 +43,15 @@ nodeSelector:
 ```
 
 5️⃣ EBS CSI Controller  
+- Helm or EKS add-on  
+Controller pods need toleration:  
+```yaml
+tolerations:
+  - key: node-role
+    value: system
+    effect: NoSchedule
+```   
+(Node DaemonSet part is fine.)  
+
+
+6️⃣ **Metrics Server**  

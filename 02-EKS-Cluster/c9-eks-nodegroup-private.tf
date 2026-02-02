@@ -58,6 +58,12 @@ resource "aws_eks_node_group" "private_nodes" {
     source_security_group_ids = var.eks_node_sg_ids   # For allowing SSH from bastion host (additional SG in addition with default SG)
   }
 
+  # taints {
+  #  key    = "node-role"
+  #  value  = "system"
+  #  effect = "NO_SCHEDULE"
+  # }
+
   # Tags for the node group and associated EC2 instances
   tags = merge(var.tags, {
     # Standard EC2 name tag

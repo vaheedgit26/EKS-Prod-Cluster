@@ -73,7 +73,7 @@ kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-load-balancer-cont
 
 5️⃣ **Optional: dynamic Helm values** 
 If you want to **programmatically set tolerations**, you can do:  
-```json
+```hcl
 values = [
   yamlencode({
     replicaCount = 2

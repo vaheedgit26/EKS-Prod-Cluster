@@ -183,3 +183,15 @@ This gives you full separation:
 | MNG       | `node-role=system:NoSchedule` | kube-system only (controllers)          |
 | Karpenter | none                          | All workloads (default namespace, apps) |  
 
+| Component      | Role                                                |
+| -------------- | --------------------------------------------------- |
+| Node taint     | Block unwanted pods from scheduling                 |
+| Pod toleration | Allow pod to override the taint                     |
+| Kyverno policy | Enforce “only kube-system may have that toleration” |   
+
+So in short:
+**Taint + toleration = scheduling control**  
+**Kyverno = enforcement guardrail**  
+You **still need to add tolerations** to system pods; Kyverno just prevents mistakes in the future.
+
+

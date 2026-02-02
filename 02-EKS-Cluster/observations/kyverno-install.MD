@@ -7,7 +7,7 @@ This is the easiest way to get started:
 kubectl create namespace kyverno
 
 # 2. Apply the latest stable release
-kubectl apply -f https://github.com/kyverno/kyverno/releases/latest/download/release.yaml
+kubectl apply -f https://github.com/kyverno/kyverno/raw/main/config/install-latest-testing.yaml
 ```
 ✅ This will install:   
 - Kyverno Deployment in kyverno namespace  

@@ -3,14 +3,14 @@ This is the easiest way to get started:
 ```bash
 # 1. Create the kyverno namespace
 kubectl create namespace kyverno
-----------------------------------------------------------------------------------------------
+
 # 2. Apply the latest stable release
 kubectl apply -f https://github.com/kyverno/kyverno/releases/latest/download/release.yaml
 ```
 ✅ This will install:   
 - Kyverno Deployment in kyverno namespace  
 - CRDs for Policies, ClusterPolicies, etc.  
-
+----------------------------------------------------------------------------------------------
 2️⃣ **Install Kyverno using Helm (more production-friendly)**  
 **1. Add the Kyverno Helm repo**  
 ```bash

@@ -1,7 +1,7 @@
 ## 🔹 kube-system (core) 
 1️⃣ CoreDNS  
 - **Why**: Cluster DNS, HPA-enabled  
-- **How**: EKS Add-on or Helm  
+- **How**: EKS Add-on or Helm   
 Toleration:  
 ```yaml
 tolerations:

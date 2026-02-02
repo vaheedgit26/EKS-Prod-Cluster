@@ -30,7 +30,7 @@ helm install kyverno kyverno/kyverno \
 ```
 - `replicaCount=2` ensures **high availability**  
 - Resource requests/limits are optional but recommended for production  
-
+***
 3️⃣ **Verify Kyverno installation**  
 ```bash
 kubectl get pods -n kyverno

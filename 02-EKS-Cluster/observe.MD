@@ -41,6 +41,15 @@ tolerations:
 nodeSelector:
   node-role: system
 ```
+Install / upgrade:  
+```bash
+helm upgrade --install aws-load-balancer-controller eks/aws-load-balancer-controller \
+  -n kube-system \
+  -f alb-values.yaml \
+  --set clusterName=<cluster-name> \
+  --set serviceAccount.create=false \
+  --set serviceAccount.name=aws-load-balancer-controller
+```
 
 5️⃣ EBS CSI Controller  
 - Helm or EKS add-on  

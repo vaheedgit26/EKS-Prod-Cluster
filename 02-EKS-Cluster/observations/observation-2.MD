@@ -5,7 +5,7 @@
 I’ll make it modular and fully declarative.  
 
 1️⃣ **Managed Node Group (MNG) — system nodes only)**  
-```hcl
+```text
 resource "aws_eks_node_group" "system_nodes" {
   cluster_name    = aws_eks_cluster.main.name
   node_group_name = "${local.name}-system-ng"

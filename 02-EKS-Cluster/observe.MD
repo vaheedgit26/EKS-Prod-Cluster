@@ -15,7 +15,7 @@ Node selector:
 nodeSelector:
   node-role: system
 ```
-
+  
 2️⃣ **kube-proxy**
 ✅ **Handled automatically**
 - Runs as a DaemonSet  

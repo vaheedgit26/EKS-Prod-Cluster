@@ -87,6 +87,7 @@ resource "karpenter_node_pool" "workload_nodes" {
 - Karpenter nodes **cannot schedule system pods** because they have **no toleration for** `node-role=system`
 - All workload pods go here by default   
 3️⃣ AWS Load Balancer Controller — Helm release with toleration   
+
 `alb-values.yaml:`   
 ```yaml
 replicaCount: 2

@@ -1,3 +1,5 @@
+## Install Kyverno
+
 1️⃣ **Install Kyverno using kubectl (quickest)**  
 This is the easiest way to get started:  
 ```bash

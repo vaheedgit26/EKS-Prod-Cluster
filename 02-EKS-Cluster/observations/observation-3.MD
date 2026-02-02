@@ -1,7 +1,7 @@
 **1. Managed Node Group (system workloads) with taint**  
 **2. Karpenter NodePool (workloads only)**  
 **3. AWS Load Balancer Controller Helm release with tolerations**  
-**4. Proper separation so system pods never land on Karpenter nodes**
+**4. Proper separation so system pods never land on Karpenter nodes**  
 I’ll make it modular and fully declarative.  
 
 1️⃣ **Managed Node Group (MNG) — system nodes only)**  

@@ -52,7 +52,7 @@ kind: ClusterPolicy
 metadata:
   name: test-deny-all
 spec:
-  validationFailureAction: enforce
+  validationFailureAction: Enforce
   rules:
     - name: deny-app-namespace
       match:

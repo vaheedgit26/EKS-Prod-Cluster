@@ -1,4 +1,5 @@
-## 🔹 kube-system (core) 
+## Addons
+🔹 **kube-system (core) **  
 1️⃣ CoreDNS  
 - **Why**: Cluster DNS, HPA-enabled  
 - **How**: EKS Add-on or Helm   
